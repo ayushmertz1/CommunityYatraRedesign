@@ -7,6 +7,7 @@ export interface ItineraryDay {
 export interface Journey {
   id: string
   name: string
+  short: string
   place: string
   region: string
   duration: string
@@ -17,6 +18,7 @@ export interface Journey {
   description: string
   moments: string[]
   itinerary: ItineraryDay[]
+  included: string[]
   palette: {
     sky: string
     accent: string
@@ -25,173 +27,216 @@ export interface Journey {
 
 export const journeys: Journey[] = [
   {
-    id: 'bandipur',
-    name: 'Bandipur Homestay Circuit',
+    id: 'homestay-circuit',
+    name: 'Bandipur Community Homestay Circuit',
+    short: 'Homestay Circuit',
     place: 'Bandipur',
-    region: 'Tanahun · mid-hills',
+    region: 'Kathmandu → Bandipur → Chitwan',
     duration: '4 days',
     nights: '3 nights',
-    priceFrom: 185,
-    pace: 'Gentle',
-    tagline: 'A hilltop bazaar where time slowed down and stayed.',
+    priceFrom: 250,
+    pace: 'Moderate',
+    tagline: 'Three community homestays, one unforgettable overland circuit.',
     description:
-      'Bandipur is a living Newar trading town strung along a saddle ridge, its 18th-century facades looking straight out at the Annapurna and Manaslu ranges. You will sleep above a family kitchen, walk the old salt route to Ramkot, and learn why the town banned cars from its flagstone bazaar.',
+      'Our founding circuit: a 3-night, 4-day loop from Kathmandu through the ridge-top bazaar of Bandipur to the grasslands of Chitwan, sleeping in a different community homestay each night. Every stop is chosen and run by the village itself — Ramkot, Dharampani, and Sauraha — so your stay pays the people who host it, directly.',
     moments: [
-      'Dawn over Marsyangdi valley from Thani Mai shrine',
-      'Newari khaja set on a bazaar verandah',
-      'Silk-farm walk & Ramkot round-house village',
-      'Evening bhajan songs with your host family',
+      'Hike from Chhirkar to Ramkot Community Homestay',
+      'Trek over Bahun Banjyang to Dharampani',
+      'Evening cultural program in Sauraha, Chitwan',
+      'Jeep safari through Chitwan National Park',
     ],
     itinerary: [
       {
         day: '01',
-        title: 'Kathmandu → the ridge',
+        title: 'Kathmandu to Bandipur',
         detail:
-          'Morning drive west along the Trisuli river. Climb the winding road to Bandipur, settle into your homestay, and wander the traffic-free bazaar as lamps come on.',
+          'Depart Kathmandu early, breakfast on the highway, lunch at the Marsyangdi River View Hotel. Hike from Chhirkar to Ramkot Community Homestay, meet the village, and enjoy light snacks before continuing to Bandipur Bazar for dinner and an overnight stay.',
       },
       {
         day: '02',
-        title: 'The old salt route',
+        title: 'Bandipur to Dharampani',
         detail:
-          'Walk the trade path to Ramkot village — round stone houses, millet terraces, a shared lunch with a farming family. Return for sunset at Tundikhel viewpoint.',
+          'After breakfast, trek to Dharampani via Bahun Banjyang, with lunch at Dandachhap Community Homestay along the way. Reach Dharampani Community Homestay by evening, explore the area, and settle in for dinner and the night.',
       },
       {
         day: '03',
-        title: 'Caves, silk & kitchens',
+        title: 'Dharampani to Chitwan',
         detail:
-          'Descend to Siddha Gufa, one of Nepal’s largest caves, visit the community silk farm, then take over the kitchen: tonight you cook the dal bhat.',
+          'After breakfast, head south to Chitwan with a lunch stop at Lavdi Dovan. Arrive at Ghumaune Ghat, then drive on to Sauraha. Relax, join the evening cultural program, and enjoy dinner overnight.',
       },
       {
         day: '04',
-        title: 'Slow morning, slow goodbye',
+        title: 'Chitwan to Kathmandu',
         detail:
-          'Tea on the verandah, a last turn through the bazaar, and the drive back to Kathmandu — with standing invitations to return.',
+          'After breakfast, take a jeep safari through Chitwan National Park. Depart for Kathmandu with a lunch stop on the highway, arriving back by evening around 6:00 pm.',
       },
+    ],
+    included: [
+      'Accommodation in community homestays (shared basis)',
+      'One breakfast and two lunches along the highway',
+      'Transportation for the full circuit',
+      'Jeep safari and cultural program in Chitwan',
     ],
     palette: { sky: '#f0b27a', accent: '#c2543a' },
   },
   {
-    id: 'ghalegaun',
-    name: 'Ghalegaun & Ghanpokhara',
-    place: 'Ghale Gaun',
-    region: 'Lamjung · Annapurna foothills',
-    duration: '6 days',
-    nights: '5 nights',
-    priceFrom: 340,
-    pace: 'Moderate',
-    tagline: 'Gurung villages in the amphitheatre of the Annapurnas.',
-    description:
-      'At 2,100 metres, Ghalegaun faces a 180-degree wall of snow — Machhapuchhre, Annapurna II, Lamjung Himal. This is Nepal’s model community-tourism village: every household takes turns hosting, and every rupee is pooled and shared. Expect honey-coloured light, woollen looms, and the warmest welcome in the hills.',
-    moments: [
-      'Sunrise panorama of Annapurna II & Machhapuchhre',
-      'Traditional Ghatu dance performed by your hosts',
-      'A day with the sheep-wool weavers',
-      'Millet-harvest lunch high above the Midim khola',
-    ],
-    itinerary: [
-      {
-        day: '01–02',
-        title: 'Into Lamjung',
-        detail:
-          'Drive to Besisahar, then climb by jeep and on foot through rhododendron forest to Ghalegaun. Two nights with a Gurung household on the upper terraces.',
-      },
-      {
-        day: '03',
-        title: 'Loom, hive & pasture',
-        detail:
-          'Morning with the weavers’ cooperative, afternoon at the cliff-hive apiary, evening Ghatu dance in the village square — hosted in turn by the community.',
-      },
-      {
-        day: '04–05',
-        title: 'Ridge walk to Ghanpokhara',
-        detail:
-          'A high traverse to the sister village of Ghanpokhara. Homestay with a veteran Gurkha family; day hike to the Uttarkanya shrine ridge.',
-      },
-      {
-        day: '06',
-        title: 'Descent & return',
-        detail: 'Walk down through terraced farmland to the road head and return to Kathmandu or Pokhara.',
-      },
-    ],
-    palette: { sky: '#9db8cf', accent: '#47614f' },
-  },
-  {
-    id: 'panauti',
-    name: 'Panauti Living Heritage',
-    place: 'Panauti',
-    region: 'Kavre · Kathmandu valley rim',
-    duration: '2 days',
-    nights: '1 night',
-    priceFrom: 95,
+    id: 'agriculture-tour',
+    name: 'Agriculture Tour',
+    short: 'Agriculture',
+    place: 'Kathmandu · Nuwakot · Bandipur · Chitwan · Gorkha',
+    region: 'Farms across five districts',
+    duration: '5 days',
+    nights: 'customizable',
+    priceFrom: 250,
     pace: 'Gentle',
-    tagline: 'A Newar temple town at the meeting of sacred rivers.',
+    tagline: 'Plant, harvest and cook your way through Nepal’s farming traditions.',
     description:
-      'An hour from Kathmandu, Panauti sits where two rivers — and a mythical third — converge. Its Indreshwar temple has stood since 1294. The town’s women pioneered Nepal’s community homestay movement; staying here is a masterclass in Newar cooking, courtyard life, and unhurried mornings.',
+      'A hands-on tour of Nepal’s agrarian heartland — working farms in Kathmandu, Nuwakot, Bandipur, Chitwan and Gorkha where crops are still grown and stored the way they were decades ago, with no machines involved. You’ll plant, harvest, and then cook what you’ve picked: a full farm-to-table day is the centrepiece of every visit. Fully customisable to the season and the kind of farming you want to try.',
     moments: [
-      'Aarati lamps on the river ghats at dusk',
-      'Hands-on Newari cooking with your host aama',
-      'The 13th-century Indreshwar Mahadev temple',
-      'Cycle ride through mustard fields to Namobuddha',
+      'Rice transplanting or millet harvest, depending on season',
+      'Farm-to-table cooking session with fresh-picked produce',
+      'Traditional grain and vegetable storage methods explained by farmers',
+      'Visits to organic farms across five different districts',
     ],
     itinerary: [
       {
         day: '01',
-        title: 'Courtyards & kitchens',
+        title: 'Kathmandu valley farms',
         detail:
-          'Arrive mid-morning. Old-town walk through tiered temples and hidden courtyards, then an afternoon cooking class — yomari, chatamari, and the family’s own dal recipe. Evening aarati by the confluence.',
+          'Begin among the valley’s vegetable and flower farms — marigold, cauliflower, tomato — learning how Kathmandu’s produce reaches its markets.',
       },
       {
         day: '02',
-        title: 'To the golden stupa',
+        title: 'Nuwakot terraces',
         detail:
-          'Early cycle or drive up to Namobuddha monastery for morning prayers, tea with a view of the Himalaya, and an easy return to Kathmandu by mid-afternoon.',
+          'Move to Nuwakot for hillside terrace farming: maize, millet and seasonal vegetables, with a homestay lunch cooked from the morning’s harvest.',
       },
+      {
+        day: '03',
+        title: 'Bandipur & Gorkha orchards',
+        detail:
+          'Visit organic farms and fruit orchards around Bandipur and Gorkha — apples, citrus, and the region’s barley and millet fields.',
+      },
+      {
+        day: '04',
+        title: 'Chitwan lowlands',
+        detail:
+          'Descend to the Terai for rice-growing country. Join a ropai (rice planting) session if the season is right, or a harvest if it isn’t.',
+      },
+      {
+        day: '05',
+        title: 'Farm-to-table & return',
+        detail:
+          'A final cooking session turning the week’s harvest into a Nepali table, then the return journey to Kathmandu.',
+      },
+    ],
+    included: [
+      'Accommodation in local homestays and eco-lodges',
+      'Daily vegetarian meals — breakfast, lunch and dinner',
+      'Private-vehicle transportation for the full trip',
+      'Guided farming and cooking sessions',
+      'Visits to organic farms in Kathmandu, Nuwakot, Bandipur, Chitwan and Gorkha',
+    ],
+    palette: { sky: '#c9d8b5', accent: '#5c7350' },
+  },
+  {
+    id: 'arts-crafts-tour',
+    name: 'Arts & Crafts Tour',
+    short: 'Arts & Crafts',
+    place: 'Madhesh · Kathmandu Valley',
+    region: 'Mithila art, Thangka, pottery & stone',
+    duration: '4 days',
+    nights: 'customizable',
+    priceFrom: 250,
+    pace: 'Gentle',
+    tagline: 'Mithila walls, Thangka brushes and a potter’s wheel.',
+    description:
+      'Nepal’s artistic traditions, taught by the artisans who keep them alive: intricate Mithila wall art from the Madhesh province, sacred Thangka painting, temple wood carving, stone sculpture, and pottery thrown the traditional way. Each craft comes with a workshop — you leave with your own handmade piece, not just a photograph of someone else’s.',
+    moments: [
+      'Mithila art workshop with Madhesh-province artists',
+      'Thangka painting session with a working monastery artist',
+      'Traditional pottery thrown on a foot-powered wheel',
+      'Temple wood-carving and stone-sculpture workshops',
+    ],
+    itinerary: [
+      {
+        day: '01',
+        title: 'Mithila art, Madhesh',
+        detail:
+          'Learn the natural pigments and symbolism of Mithila wall art directly from the women artists of the Madhesh province.',
+      },
+      {
+        day: '02',
+        title: 'Thangka painting',
+        detail:
+          'A guided Thangka session — the mineral colours, the mandala geometry, and the meditation built into every brushstroke.',
+      },
+      {
+        day: '03',
+        title: 'Wood, stone & clay',
+        detail:
+          'Try your hand at temple wood carving and stone sculpture in a Kathmandu Valley workshop, then move to the potter’s wheel for traditional pottery.',
+      },
+      {
+        day: '04',
+        title: 'Finish & carry home',
+        detail:
+          'A final studio morning to finish your pieces, with time to pack your handmade souvenirs before the journey back.',
+      },
+    ],
+    included: [
+      'All workshop materials and artisan instruction',
+      'Accommodation for the duration of the tour',
+      'Transportation between workshop locations',
+      'Your finished Mithila, Thangka, pottery and carving pieces to take home',
     ],
     palette: { sky: '#e5a25c', accent: '#a03d28' },
   },
   {
-    id: 'chitwan',
-    name: 'Tharu Lands of Chitwan',
-    place: 'Barauli',
-    region: 'Chitwan · Terai grasslands',
-    duration: '5 days',
-    nights: '4 nights',
-    priceFrom: 275,
+    id: 'volunteer-tour',
+    name: 'Volunteer Tour',
+    short: 'Volunteer',
+    place: 'Villages across Nepal',
+    region: 'Education · healthcare · community',
+    duration: '2+ weeks',
+    nights: 'flexible',
+    priceFrom: 250,
     pace: 'Spirited',
-    tagline: 'Grasslands, river dawns and the culture of the Tharu.',
+    tagline: 'Give a hand, not a handout — placements chosen by the village.',
     description:
-      'On the western edge of Chitwan National Park, the village of Barauli runs its own community lodge and homestays. Days move between wildlife — rhinos at the river, hornbills overhead — and the rhythms of Tharu life: stick dances, fish traps, and houses painted with rice-flour murals.',
+      'A placement-based tour for travellers who want to contribute, not just observe: education, healthcare support, women’s empowerment or community development, working on projects the village committee has actually asked for. You’ll pair meaningful work with real cultural exchange, and the personal growth that comes from a few weeks of teamwork, empathy and cross-cultural communication in an unfamiliar place.',
     moments: [
-      'Canoe drift past basking gharial crocodiles',
-      'Tharu stick dance under the mango trees',
-      'Ox-cart ride through the village commons',
-      'Dawn mist on the Narayani river floodplain',
+      'Morning placements in local schools, clinics or committees',
+      'Evenings immersed in the host community’s daily life',
+      'Projects chosen and led by the village, never by us',
+      'Lasting friendships with fellow volunteers and hosts',
     ],
     itinerary: [
       {
-        day: '01',
-        title: 'Down to the Terai',
+        day: 'Week 1',
+        title: 'Arrival & placement',
         detail:
-          'Fly or drive south to Chitwan. Settle into Barauli community homestay; evening walk through the village as the herds come home.',
+          'Settle into your host village and placement — a school, a health post, or a community development project — and meet the people you’ll be working alongside.',
       },
       {
-        day: '02–03',
-        title: 'Into the grasslands',
+        day: 'Week 2',
+        title: 'Into the work',
         detail:
-          'Jeep and canoe safaris in the national park’s quiet western sector with community naturalists — rhino, deer, gharial, and 300 bird species.',
+          'Full days on your project, evenings woven into community life: shared meals, festivals, and the everyday rhythms of your host family.',
       },
       {
-        day: '04',
-        title: 'A Tharu day',
+        day: 'Onward',
+        title: 'Extend or move on',
         detail:
-          'Learn mural painting and net fishing, cook a Tharu feast, and join the evening stick-dance — everyone dances, no exceptions.',
-      },
-      {
-        day: '05',
-        title: 'River morning & return',
-        detail: 'Last canoe drift at dawn, brunch with your hosts, and the journey back to Kathmandu.',
+          'Most volunteers extend beyond two weeks once they’re settled in. Stay longer, pair your placement with a homestay circuit, or head home with an open invitation to return.',
       },
     ],
-    palette: { sky: '#c9d8b5', accent: '#5c7350' },
+    included: [
+      'Homestay accommodation with a host family',
+      'Placement matched to your skills and the village’s actual needs',
+      'Local orientation and language basics',
+      'Ongoing support from the Community Yatra team throughout',
+    ],
+    palette: { sky: '#9db8cf', accent: '#47614f' },
   },
 ]

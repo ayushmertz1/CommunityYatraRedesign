@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { journeys } from '../data/journeys'
+import { contact } from '../data/site'
 import { PrayerFlags } from '../art/Motifs'
 import { Reveal, SectionHeading } from './ui'
 
@@ -31,7 +32,7 @@ export function PlanCta() {
       ``,
       `${data.get('message') || ''}`,
     ].join('\n')
-    window.location.href = `mailto:namaste@communityyatra.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
       'Planning my yatra',
     )}&body=${encodeURIComponent(body)}`
     setSent(true)
@@ -66,18 +67,18 @@ export function PlanCta() {
                 <div className="space-y-2.5 text-[0.95rem]">
                   <p>
                     <span className="text-paper/40">Write —</span>{' '}
-                    <a href="mailto:namaste@communityyatra.com" className="text-marigold underline-offset-4 hover:underline">
-                      namaste@communityyatra.com
+                    <a href={`mailto:${contact.email}`} className="text-marigold underline-offset-4 hover:underline">
+                      {contact.email}
                     </a>
                   </p>
                   <p>
-                    <span className="text-paper/40">Call / WhatsApp —</span>{' '}
-                    <a href="tel:+9779800000000" className="text-paper hover:text-marigold">
-                      +977 98 0000 0000
+                    <span className="text-paper/40">Call —</span>{' '}
+                    <a href={`tel:${contact.phone}`} className="text-paper hover:text-marigold">
+                      {contact.phoneDisplay}
                     </a>
                   </p>
                   <p>
-                    <span className="text-paper/40">Find us —</span> Jhamsikhel, Lalitpur · Kathmandu valley
+                    <span className="text-paper/40">Find us —</span> {contact.address}
                   </p>
                 </div>
               </div>
@@ -126,7 +127,7 @@ export function PlanCta() {
                             : 'border-paper/20 text-paper/70 hover:border-paper/50 hover:text-paper'
                         }`}
                       >
-                        {j.place}
+                        {j.short}
                       </button>
                     )
                   })}
@@ -155,7 +156,7 @@ export function PlanCta() {
 
               {sent && (
                 <p className="mt-4 text-center text-sm text-marigold-soft" role="status">
-                  Your mail app should be opening — if not, write to namaste@communityyatra.com. Namaste!
+                  Your mail app should be opening — if not, write to {contact.email}. Namaste!
                 </p>
               )}
             </form>

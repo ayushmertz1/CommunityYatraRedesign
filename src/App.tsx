@@ -8,6 +8,7 @@ import { DayInLife } from './components/DayInLife'
 import { Volunteer } from './components/Volunteer'
 import { Impact } from './components/Impact'
 import { Voices } from './components/Voices'
+import { Team } from './components/Team'
 import { PlanCta } from './components/PlanCta'
 import { Footer } from './components/Footer'
 import { Torn } from './components/Torn'
@@ -45,6 +46,7 @@ export default function App() {
           <Torn color="text-ink" />
         </div>
         <Voices />
+        <Team />
         <div className="bg-ink-deep">
           <Torn color="text-paper" />
         </div>

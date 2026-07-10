@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { nav } from '../data/site'
+import { nav, contact } from '../data/site'
 import { SunMark } from '../art/Motifs'
 
 function Wordmark({ className = '' }: { className?: string }) {
@@ -123,7 +123,7 @@ export function Nav() {
               </motion.a>
             </nav>
             <p className="text-sm text-paper/50">
-              Kathmandu, Nepal · namaste@communityyatra.com
+              Kathmandu, Nepal · {contact.email}
             </p>
           </motion.div>
         )}

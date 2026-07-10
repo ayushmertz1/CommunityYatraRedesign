@@ -12,17 +12,18 @@ export function Volunteer() {
       <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-36">
         <div className="grid items-start gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
           <div>
-            <SectionHeading eyebrow="Give a hand, not a handout" tone="dark">
+            <SectionHeading eyebrow="Make a difference while exploring" tone="dark">
               Volunteer where
               <br />
               the village leads.
             </SectionHeading>
             <Reveal delay={0.15}>
               <p className="mt-8 max-w-lg text-[1.02rem] leading-relaxed text-ink/65">
-                Our volunteering is deliberately unglamorous: no orphanage tours, no
-                photo-op builds. Village committees decide what is needed each season; you
-                bring your hands, your patience and your appetite. Most placements pair with
-                a homestay circuit, so your work and your welcome share the same roof.
+                A Volunteer Tour with us is a chance to contribute to local communities while
+                experiencing Nepal’s culture and natural beauty — helping with education,
+                environmental work, or healthcare support. Village committees decide what is
+                actually needed each season; you bring your hands, your patience, and your
+                appetite for real work.
               </p>
             </Reveal>
             <Reveal delay={0.25}>

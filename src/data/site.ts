@@ -4,6 +4,7 @@ export const nav = [
   { label: 'A Day With Us', href: '#day' },
   { label: 'Volunteer', href: '#volunteer' },
   { label: 'Impact', href: '#impact' },
+  { label: 'Our Team', href: '#team' },
 ]
 
 export const impactStats = [
@@ -13,44 +14,61 @@ export const impactStats = [
   { value: 4200, suffix: '+', label: 'travellers hosted', detail: 'and most of them still write to their Nepali families' },
 ]
 
+// Genuine guest reviews of Community Yatra host homestays in Bandipur.
 export const testimonials = [
   {
     quote:
-      'I came for the mountains and left thinking about a kitchen. Aama taught me to fold yomari, laughed at my Nepali, and cried when we left. So did we.',
-    name: 'Claire Dubois',
-    detail: 'Panauti & Bandipur · France',
+      'A very good family run hotel in historical town Bandipur. Very special taken care, clean room and bathroom, wifi etc. And another most important thing that they serve only organic food that been grown up at their own farm. Good to visit the farm itself. Highly recommended to everyone.',
+    name: 'Badri Aryal',
+    detail: 'Traveler · Bandipur',
   },
   {
     quote:
-      'This is the only trip I’ve taken where I knew exactly where my money went — I ate dinner with the people it went to. Ghalegaun rearranged something in me.',
-    name: 'Daniel Okafor',
-    detail: 'Ghalegaun circuit · UK',
+      'It’s only a place that you feel heavenly peace situated on top of the city close to Khadgadevi Temple, Quiet rooms, Good room service, Helpful concierge, Spacious rooms, Historic building, Romantic atmosphere, Family-friendly.',
+    name: 'Dharmendra R. Joshi',
+    detail: 'Traveler · Bandipur',
   },
   {
     quote:
-      'Our kids fed buffalo, painted rice-flour murals and danced badly and joyfully. Six months later they still ask about their Tharu grandparents.',
-    name: 'The Yamamoto family',
-    detail: 'Chitwan · Japan',
+      'Wonderful traditional home lovingly restored and upgraded with modern amenities. Great location in the historic Bazaar from where you can observe the local life while you enjoy your food. Splendid views of the Himalayas on clear days.',
+    name: 'Jharna Joshi',
+    detail: 'Local Guide · Bandipur',
+  },
+  {
+    quote:
+      'Matina Chen is a great place to stay when you are in Bandipur. The hotel is very beautiful, clean, quiet and has kind owners. It’s located in the pedestrian area and you have a great view over the main street.',
+    name: 'Julia Speiser',
+    detail: 'Traveler · Bandipur',
   },
 ]
 
 export const volunteerTracks = [
   {
-    title: 'Teach & learn',
+    title: 'Community impact',
     detail:
-      'Morning English conversation clubs in village schools, afternoons learning Nepali and Newari script from your students. Two weeks minimum, humility mandatory.',
+      'Volunteer in education, healthcare, women’s empowerment and community development — real placements chosen by the village committee, never by us.',
     icon: 'book',
   },
   {
-    title: 'Build together',
+    title: 'Cultural exchange',
     detail:
-      'Trail repair, smokeless stove installation and homestay upgrades — projects chosen and led by the village committee, never by us.',
-    icon: 'hammer',
+      'Engage with locals, learn Nepali traditions, and immerse yourself in the country’s cultural diversity while you work.',
+    icon: 'compass',
   },
   {
-    title: 'Farm the terraces',
+    title: 'Sustainable change',
     detail:
-      'Rice transplanting in June, millet harvest in November, mustard in between. Real work, real meals, and the best sleep of your life.',
+      'Your effort helps build development that lasts — empowering local communities long after your placement ends.',
     icon: 'sprout',
   },
 ]
+
+export const contact = {
+  address: 'Thamel, Kathmandu, Nepal',
+  email: 'communityyatra@gmail.com',
+  phone: '+977-9767656100',
+  phoneDisplay: '976-7656100',
+  facebook: 'https://www.facebook.com/communityyatra',
+  instagram: 'https://www.instagram.com/community_yatra/',
+  linkedin: 'https://np.linkedin.com/in/community-yatra-025110311',
+}

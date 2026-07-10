@@ -53,9 +53,9 @@ export function Impact() {
 
         <Reveal className="mt-12">
           <p className="max-w-2xl text-sm leading-relaxed text-paper/45">
-            Figures audited with our village committees each season. The remaining 26% covers
-            transport, park permits, insurance and the four of us in the Kathmandu office —
-            our books are open, ask and we’ll show you.
+            Figures reviewed with our village committees each season. The remaining share covers
+            transport, park permits, insurance and our small Kathmandu team — our books are open,
+            ask and we’ll show you.
           </p>
         </Reveal>
       </div>

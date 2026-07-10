@@ -64,134 +64,119 @@ export function BandipurScene() {
   )
 }
 
-/** Ghalegaun — Gurung village under the Annapurna snow wall, alpine morning. */
-export function GhalegaunScene() {
+/** Agriculture Tour — terraced rice paddies, midday planting. */
+export function AgricultureScene() {
   return (
-    <Frame id="gg" sky={['#22304d', '#7f98b6', '#d8e2e8']}>
-      {/* snow wall */}
-      <path d="M0 250 L60 140 L110 205 L185 95 L255 195 L330 115 L395 200 L470 85 L545 190 L600 140 L640 195 L640 400 L0 400 Z" fill="#eef3f4" />
-      <g fill="#a9bccb">
-        <path d="M185 95 L255 195 L205 198 Z" />
-        <path d="M470 85 L545 190 L492 193 Z" />
-        <path d="M60 140 L110 205 L74 207 Z" />
-        <path d="M330 115 L395 200 L348 202 Z" />
-      </g>
-      {/* forest ridge */}
-      <path d="M0 305 C110 280 220 268 330 274 C450 280 550 265 640 285 L640 400 L0 400 Z" fill="#33475a" />
-      <g fill="#27394a">
-        <path d="M80 288 l8 -16 8 16 Z" />
-        <path d="M112 282 l7 -14 7 14 Z" />
-        <path d="M480 272 l8 -16 8 16 Z" />
-        <path d="M512 268 l7 -14 7 14 Z" />
-      </g>
-      {/* village terraces */}
-      <path d="M0 400 L0 340 C130 322 260 314 390 322 C500 329 580 342 640 352 L640 400 Z" fill="#22303c" />
-      <g fill="#141f28">
-        <rect x="250" y="304" width="36" height="26" />
-        <rect x="294" y="300" width="42" height="30" />
-        <rect x="342" y="308" width="32" height="22" />
-      </g>
-      <g fill="#8a8f93">
-        <path d="M246 304 L268 290 L290 304 Z" />
-        <path d="M290 300 L315 284 L340 300 Z" />
-        <path d="M338 308 L358 295 L378 308 Z" />
-      </g>
-      <g fill="#e8a33d">
-        <rect x="262" y="312" width="6" height="8" />
-        <rect x="308" y="308" width="6" height="8" />
-        <rect x="352" y="314" width="5" height="7" />
-      </g>
-      <g stroke="#d8e2e8" strokeWidth="1" opacity="0.14" fill="none">
-        <path d="M40 372 C170 356 320 350 460 360" />
-        <path d="M110 390 C240 376 380 370 520 380" />
-      </g>
-    </Frame>
-  )
-}
-
-/** Panauti — tiered temple at the river confluence, lamp-lit dusk. */
-export function PanautiScene() {
-  return (
-    <Frame id="pn" sky={['#33244a', '#8f4d51', '#e5a25c']}>
-      <circle cx="180" cy="164" r="44" fill="#f3c877" opacity="0.9" />
-      {/* valley rim */}
-      <path d="M0 235 C110 215 230 205 350 212 C470 219 560 205 640 218 L640 400 L0 400 Z" fill="#5c4258" />
-      {/* temple */}
+    <Frame id="ag" sky={['#5c7a6e', '#9fae83', '#e6d3a0']}>
+      <circle cx="500" cy="120" r="52" fill="#f3d38c" opacity="0.9" />
+      {/* distant hills */}
+      <path d="M0 200 C100 170 220 185 340 165 C460 145 540 175 640 155 L640 400 L0 400 Z" fill="#7c9270" opacity="0.6" />
+      {/* terraced paddies cascading down */}
       <g>
-        {/* plinth */}
-        <rect x="330" y="286" width="150" height="14" fill="#241a2e" />
-        <rect x="342" y="274" width="126" height="12" fill="#2b2036" />
-        {/* body */}
-        <rect x="376" y="234" width="58" height="40" fill="#241a2e" />
-        {/* three tiered roofs */}
-        <path d="M348 240 L405 196 L462 240 L440 240 L405 214 L370 240 Z" fill="#8f3a26" />
-        <path d="M356 238 L405 202 L454 238 Z" fill="#a03d28" />
-        <path d="M366 210 L405 180 L444 210 Z" fill="#8f3a26" />
-        <path d="M378 186 L405 164 L432 186 Z" fill="#a03d28" />
-        <rect x="401" y="150" width="8" height="14" fill="#e8a33d" />
-        {/* lit doorway */}
-        <rect x="397" y="252" width="16" height="22" rx="7" fill="#e8a33d" />
+        <path d="M0 400 L0 250 C120 236 260 232 400 244 C500 252 580 262 640 270 L640 296 C560 288 470 280 380 274 C250 264 120 268 0 282 Z" fill="#8fae6e" />
+        <path d="M0 282 L0 316 C130 302 270 300 410 312 C510 320 590 328 640 334 L640 300 C560 292 480 284 400 278 C270 268 130 272 0 282 Z" fill="#7a9c5c" />
+        <path d="M0 316 L0 400 L640 400 L640 334 C560 340 480 348 400 344 C270 337 130 328 0 316 Z" fill="#688a4d" />
       </g>
-      {/* ghats and river */}
-      <path d="M0 400 L0 312 C160 300 340 296 640 306 L640 400 Z" fill="#1c1426" />
-      <g stroke="#e5a25c" strokeWidth="1.4" opacity="0.5">
-        <path d="M60 330 h130 M76 344 h120 M92 358 h112" fill="none" />
+      {/* paddy water sheen lines */}
+      <g stroke="#cfe0a8" strokeWidth="1" opacity="0.4" fill="none">
+        <path d="M20 264 C160 252 320 250 460 260" />
+        <path d="M30 300 C170 290 330 292 480 302" />
+        <path d="M20 340 C170 334 340 330 500 338" />
       </g>
-      {/* river with lamp reflections */}
-      <path d="M0 400 L0 368 C180 358 420 356 640 364 L640 400 Z" fill="#2a2440" />
-      <g stroke="#f3c877" strokeLinecap="round" opacity="0.7">
-        <path d="M404 372 v10" strokeWidth="2.4" />
-        <path d="M180 376 v8" strokeWidth="2" />
-        <path d="M290 380 v7" strokeWidth="2" />
-        <path d="M520 378 v8" strokeWidth="2" />
+      {/* farmer bent planting */}
+      <g fill="#2c2418">
+        <path d="M300 300 c-2 -8 3 -14 10 -15 l3 10 -8 4 -2 8 Z" />
+        <path d="M303 295 c8 -10 18 -14 26 -10 l-4 8 c-6 -2 -13 0 -18 6 Z" />
+        <circle cx="332" cy="288" r="5" />
+        <path d="M296 306 l-6 12 M310 305 l4 13" stroke="#2c2418" strokeWidth="2.5" strokeLinecap="round" />
+      </g>
+      {/* conical straw hat */}
+      <path d="M322 282 l16 -6 16 6 -3 3 -13 -4 -13 4 Z" fill="#e8d090" />
+    </Frame>
+  )
+}
+
+/** Arts & Crafts Tour — a Mithila-painted courtyard workshop, warm dusk. */
+export function ArtsCraftsScene() {
+  return (
+    <Frame id="ac" sky={['#3a2440', '#8f4d51', '#e5a25c']}>
+      <circle cx="150" cy="150" r="42" fill="#f3c877" opacity="0.85" />
+      {/* courtyard wall */}
+      <path d="M0 250 L640 250 L640 400 L0 400 Z" fill="#d8a35a" />
+      {/* Mithila mural band */}
+      <g fill="#a03d28">
+        <circle cx="90" cy="200" r="18" />
+        <circle cx="90" cy="200" r="9" fill="#e8a33d" />
+        <path d="M150 185 l14 30 h-28 Z" />
+        <circle cx="230" cy="200" r="14" fill="#47614f" />
+        <path d="M290 185 q20 15 0 30 q-20 -15 0 -30 Z" fill="#e8a33d" />
+        <circle cx="350" cy="200" r="10" />
+        <path d="M400 188 l12 24 -12 -6 -12 6 Z" fill="#47614f" />
+      </g>
+      <g stroke="#a03d28" strokeWidth="2" opacity="0.6" fill="none">
+        <path d="M40 230 h420" />
+        <path d="M40 175 h420" />
+      </g>
+      {/* potter at the wheel */}
+      <g>
+        <ellipse cx="480" cy="330" rx="34" ry="8" fill="#241a2e" opacity="0.5" />
+        <circle cx="480" cy="316" r="16" fill="#7a5230" />
+        <path d="M480 300 a8 12 0 0 1 0 24 a5 8 0 0 1 0 -24 Z" fill="#8f6338" />
+        {/* potter figure */}
+        <g fill="#241a2e">
+          <circle cx="510" cy="278" r="8" />
+          <path d="M502 288 c4 -6 14 -6 18 0 l4 22 h-26 Z" />
+          <path d="M500 296 l-14 14 M520 296 l10 16" stroke="#241a2e" strokeWidth="3" strokeLinecap="round" />
+        </g>
+      </g>
+      {/* hanging thangka-style banner */}
+      <g>
+        <rect x="560" y="140" width="42" height="56" rx="2" fill="#8f3a26" />
+        <rect x="566" y="146" width="30" height="30" fill="#e8a33d" opacity="0.85" />
+        <circle cx="581" cy="161" r="9" fill="#3a2440" />
       </g>
     </Frame>
   )
 }
 
-/** Chitwan — Terai grasslands, rhino at first light. */
-export function ChitwanScene() {
+/** Volunteer Tour — a village schoolhouse, bright morning. */
+export function VolunteerScene() {
   return (
-    <Frame id="ct" sky={['#3c4a4a', '#9fae83', '#e6d3a0']}>
-      <circle cx="212" cy="196" r="58" fill="#f3c877" opacity="0.95" />
-      {/* treeline */}
-      <path d="M0 252 C60 240 90 246 140 238 C200 228 240 240 300 232 C370 224 420 238 480 230 C540 222 590 236 640 228 L640 400 L0 400 Z" fill="#42563e" />
-      <g fill="#364833">
-        <ellipse cx="86" cy="240" rx="34" ry="18" />
-        <rect x="82" y="248" width="8" height="18" />
-        <ellipse cx="560" cy="228" rx="40" ry="20" />
-        <rect x="556" y="238" width="8" height="20" />
+    <Frame id="vl" sky={['#3a5470', '#7f98b6', '#d8e2e8']}>
+      <circle cx="520" cy="110" r="46" fill="#f6ecc9" opacity="0.9" />
+      {/* hills */}
+      <path d="M0 220 C120 195 240 210 360 190 C460 174 550 200 640 182 L640 400 L0 400 Z" fill="#5c7a8f" opacity="0.55" />
+      <path d="M0 400 L0 300 C140 280 300 276 460 288 C520 292 580 298 640 306 L640 400 Z" fill="#33475a" />
+      {/* schoolhouse */}
+      <g>
+        <rect x="220" y="230" width="180" height="80" fill="#241c2b" />
+        <path d="M210 230 L310 178 L410 230 Z" fill="#a03d28" />
+        {/* chalkboard-lit windows */}
+        <rect x="244" y="252" width="34" height="40" rx="2" fill="#e8a33d" opacity="0.9" />
+        <rect x="292" y="252" width="34" height="40" rx="2" fill="#e8a33d" opacity="0.75" />
+        <rect x="340" y="252" width="34" height="40" rx="2" fill="#e8a33d" opacity="0.9" />
+        {/* flag */}
+        <rect x="308" y="150" width="3" height="30" fill="#0c1422" />
+        <path d="M311 152 l20 6 -20 6 Z" fill="#c2543a" />
       </g>
-      {/* grass bands */}
-      <path d="M0 400 L0 288 C160 276 400 274 640 284 L640 400 Z" fill="#5c7350" />
-      <path d="M0 400 L0 330 C200 320 440 318 640 326 L640 400 Z" fill="#48604272" />
-      {/* river slick */}
-      <path d="M0 400 L0 356 C220 346 430 346 640 354 L640 400 Z" fill="#7d939b" opacity="0.5" />
-      {/* one-horned rhino, head low to graze */}
-      <g fill="#26332a">
-        {/* body — high shoulder hump, heavy rump */}
-        <path d="M338 336 c-8 -4 -12 -14 -8 -24 5 -13 18 -22 36 -24 l26 -3 c10 -8 22 -12 32 -10 8 2 14 8 18 16 l4 9 c14 4 20 14 18 24 -2 8 -9 13 -18 15 l-3 15 h-11 l-2 -13 -24 1 -2 12 h-11 l-3 -14 c-20 0 -40 -1 -52 -4 Z" />
-        {/* head lowered to the grass */}
-        <path d="M438 300 c10 -2 20 2 25 10 l10 16 c2 4 1 8 -3 10 l-14 5 c-8 2 -16 -1 -19 -8 l-8 -20 c-2 -6 2 -11 9 -13 Z" />
-        {/* horn — upswept from the snout tip */}
-        <path d="M462 330 c10 -4 17 -12 19 -22 l6 18 c2 8 -4 15 -12 15 -6 0 -11 -5 -13 -11 Z" />
-        {/* ear */}
-        <path d="M444 298 l3 -14 10 10 Z" />
-        {/* armour fold */}
-        <path d="M394 290 c2 14 2 28 -2 42" stroke="#1c261f" strokeWidth="2.5" fill="none" opacity="0.6" />
+      {/* children silhouettes in the yard */}
+      <g fill="#141f28">
+        <circle cx="160" cy="308" r="7" />
+        <path d="M153 316 c0 -8 14 -8 14 0 l-2 20 h-10 Z" />
+        <circle cx="184" cy="312" r="6" />
+        <path d="M178 319 c0 -7 12 -7 12 0 l-2 17 h-8 Z" />
+        <circle cx="450" cy="306" r="7" />
+        <path d="M443 314 c0 -8 14 -8 14 0 l-2 20 h-10 Z" />
       </g>
-      {/* grass strokes */}
-      <g stroke="#3d5138" strokeWidth="2" strokeLinecap="round" opacity="0.7">
-        <path d="M60 386 c2 -10 0 -16 -4 -22 M74 388 c1 -9 4 -14 9 -18 M88 386 c0 -8 -2 -14 -6 -20" fill="none" />
-        <path d="M540 382 c2 -10 0 -16 -4 -22 M554 384 c1 -9 4 -14 9 -18 M568 382 c0 -8 -2 -14 -6 -20" fill="none" />
-      </g>
+      {/* foreground path */}
+      <path d="M0 400 L0 344 C160 332 320 330 480 338 C540 341 590 345 640 350 L640 400 Z" fill="#22303c" />
     </Frame>
   )
 }
 
 export const journeyScenes: Record<string, () => React.ReactNode> = {
-  bandipur: BandipurScene,
-  ghalegaun: GhalegaunScene,
-  panauti: PanautiScene,
-  chitwan: ChitwanScene,
+  'homestay-circuit': BandipurScene,
+  'agriculture-tour': AgricultureScene,
+  'arts-crafts-tour': ArtsCraftsScene,
+  'volunteer-tour': VolunteerScene,
 }

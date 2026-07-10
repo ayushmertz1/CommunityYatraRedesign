@@ -58,9 +58,11 @@ export function Manifesto() {
           </p>
         </div>
         <p className="mt-12 max-w-2xl text-[1.02rem] leading-relaxed text-paper/60">
-          Community Yatra exists so that tourism serves the village — not the other way around.
-          Every journey is designed with, owned by, and answerable to the communities who host it.
-          No resorts. No middlemen. Just doors that open, and tables that make room.
+          Community Yatra Pvt. Ltd. was started to promote the Nepali community through tourism
+          development — empowering hosts by preserving and exchanging local culture, and
+          safeguarding the environment for sustainable tourism, with the long-term objective of a
+          Net Zero Road Map. No resorts. No middlemen. Just doors that open, and tables that make
+          room.
         </p>
       </div>
     </section>

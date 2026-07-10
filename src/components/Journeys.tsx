@@ -118,11 +118,15 @@ function JourneyModal({ journey, onClose }: { journey: Journey; onClose: () => v
 
           <Stitch className="my-9 h-1 w-full text-clay" />
 
-          <h4 className="text-[0.72rem] font-semibold tracking-[0.24em] text-clay uppercase">Day by day</h4>
+          <h4 className="text-[0.72rem] font-semibold tracking-[0.24em] text-clay uppercase">
+            {journey.id === 'volunteer-tour' ? 'How it unfolds' : 'Day by day'}
+          </h4>
           <ol className="mt-6 space-y-7">
             {journey.itinerary.map((d) => (
               <li key={d.day} className="grid gap-2 sm:grid-cols-[88px_1fr] sm:gap-6">
-                <span className="font-display text-lg font-semibold whitespace-nowrap text-clay">Day {d.day}</span>
+                <span className="font-display text-lg font-semibold whitespace-nowrap text-clay">
+                  {/^\d/.test(d.day) ? `Day ${d.day}` : d.day}
+                </span>
                 <div>
                   <h5 className="font-display text-xl font-medium text-ink">{d.title}</h5>
                   <p className="mt-1.5 leading-relaxed text-ink/65">{d.detail}</p>
@@ -130,6 +134,20 @@ function JourneyModal({ journey, onClose }: { journey: Journey; onClose: () => v
               </li>
             ))}
           </ol>
+
+          <Stitch className="my-9 h-1 w-full text-clay" />
+
+          <h4 className="text-[0.72rem] font-semibold tracking-[0.24em] text-clay uppercase">What's included</h4>
+          <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+            {journey.included.map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-[0.92rem] leading-snug text-ink/70">
+                <svg viewBox="0 0 16 16" className="mt-0.5 h-4 w-4 shrink-0 text-juniper" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M3 8.5 6.5 12 13 4.5" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-10 flex flex-wrap items-center justify-between gap-5 rounded-2xl bg-ink p-6 text-paper sm:p-7">
             <div>
@@ -167,14 +185,14 @@ export function Journeys() {
       <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-36">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <SectionHeading eyebrow="Curated circuits" tone="dark">
-            Four journeys,
+            Four ways to travel,
             <br />
-            forty open doors.
+            one community behind each.
           </SectionHeading>
           <Reveal delay={0.15}>
             <p className="max-w-sm leading-relaxed text-ink/60">
-              Each circuit strings together villages that chose to host — routes shaped by the
-              communities themselves, from Terai grasslands to Annapurna balconies.
+              Homestays, farms, workshops or a village placement — every route is run with the
+              communities themselves, and shaped around what you want out of Nepal.
             </p>
           </Reveal>
         </div>

@@ -74,8 +74,8 @@ export function Voices() {
           {[0, 1].map((half) => (
             <div key={half} className="flex items-center gap-8">
               {[
-                'Bandipur', 'Ghalegaun', 'Panauti', 'Barauli', 'Sirubari', 'Ghandruk',
-                'Ramkot', 'Ghanpokhara', 'Namobuddha', 'Chitlang', 'Balthali', 'Nuwakot',
+                'Bandipur', 'Ramkot', 'Dharampani', 'Sauraha', 'Chitwan', 'Nuwakot',
+                'Gorkha', 'Pokhara', 'Madhesh', 'Kathmandu',
               ].map((v) => (
                 <span key={v} className="flex items-center gap-8 font-display text-xl text-ink/35">
                   {v}
