@@ -40,12 +40,21 @@ npm run build      # type-check + production build to dist/
 npm run preview    # serve the production build locally
 ```
 
-## Deploy (cPanel)
+## Deploy
 
-1. `npm run build`
+**GitHub Pages (staging):** pushed commits auto-deploy via `.github/workflows/deploy-pages.yml`
+to `https://ayushmertz1.github.io/CommunityYatraRedesign/`. The workflow builds with
+`VITE_BASE=/CommunityYatraRedesign/` and copies `index.html` → `404.html` for SPA routing.
+
+**cPanel (production):**
+
+1. `npm run build` (no `VITE_BASE` — the site lives at the domain root)
 2. Upload the **contents** of `dist/` to `public_html/` (or the domain's document root).
 3. The included `.htaccess` handles SPA routing (all paths fall through to `index.html`),
    long-lived caching for hashed assets, and gzip.
+
+**Contact form:** submissions go through [Web3Forms](https://web3forms.com) to the site inbox —
+no server required on either host.
 
 ## Structure
 

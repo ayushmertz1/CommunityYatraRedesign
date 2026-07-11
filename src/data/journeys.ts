@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 export interface ItineraryDay {
   day: string;
   title: string;
@@ -36,8 +37,8 @@ export const journeys: Journey[] = [
       "From there the trail drops through orange groves to Dharampani, where your hosts are farmers first and hoteliers never. You eat what the hillside grows. The last leg descends to Chitwan's Tharu country — a different language, a different architecture, the same unhurried welcome.",
       "You travel between homes, not hotels. Every meal, every bed and every guide along the circuit is provided by the villages themselves — which is exactly where your money stays.",
     ],
-    image: "/images/journeys/circuit.webp",
-    imageWide: "/images/journeys/circuit-wide.webp",
+    image: asset("/images/journeys/circuit.webp"),
+    imageWide: asset("/images/journeys/circuit-wide.webp"),
     duration: "4 days · 3 nights",
     region: "Bandipur — Dharampani — Chitwan",
     pace: "Moderate",
@@ -102,8 +103,8 @@ export const journeys: Journey[] = [
       "Nothing here is staged. Grain is still stored the old way, oxen still turn the smaller fields, and the food you help harvest is the food you eat that night — cooked with the family, on their stove, to their grandmother's timing.",
       "It is a working education in organic and subsistence farming, and one of the most honest ways to understand the Himalayan economy. Students and researchers are especially welcome; farmers love an extra pair of hands.",
     ],
-    image: "/images/journeys/agriculture.webp",
-    imageWide: "/images/journeys/agriculture-wide.webp",
+    image: asset("/images/journeys/agriculture.webp"),
+    imageWide: asset("/images/journeys/agriculture-wide.webp"),
     duration: "Flexible · 2–10 days",
     region: "Nuwakot · Bandipur · Gorkha · Chitwan",
     pace: "Full days",
@@ -147,8 +148,8 @@ export const journeys: Journey[] = [
       "You will sit with a thangka master as mineral pigments are ground by hand, paint Mithila motifs with women who learned them from their mothers, and try the potter's wheel in Bhaktapur's open squares.",
       "The thread running through it all is script: Ranjana, the sacred calligraphy of the Newars, and the Devanagari that grew alongside it. Learn to write your name the way scribes wrote scripture.",
     ],
-    image: "/images/journeys/arts-crafts.webp",
-    imageWide: "/images/journeys/arts-crafts-wide.webp",
+    image: asset("/images/journeys/arts-crafts.webp"),
+    imageWide: asset("/images/journeys/arts-crafts-wide.webp"),
     duration: "Flexible · 3–7 days",
     region: "Kathmandu Valley · Janakpur",
     pace: "Gentle",
@@ -191,8 +192,8 @@ export const journeys: Journey[] = [
       "You live in a homestay, eat with your hosts and work to the village's rhythm. The point is exchange, not charity: you will learn at least as much as you teach.",
       "Placements run from a single week to a full season, and we are honest about impact — small, steady and community-owned beats grand gestures every time.",
     ],
-    image: "/images/journeys/volunteer.webp",
-    imageWide: "/images/journeys/volunteer-wide.webp",
+    image: asset("/images/journeys/volunteer.webp"),
+    imageWide: asset("/images/journeys/volunteer-wide.webp"),
     duration: "1 week — 3 months",
     region: "Placements across Nepal",
     pace: "Full days",
@@ -228,32 +229,32 @@ export const journeys: Journey[] = [
 export const upcomingJourneys = [
   {
     title: "Cultural Cooking",
-    image: "/images/journeys/cooking.webp",
+    image: asset("/images/journeys/cooking.webp"),
     blurb: "Family kitchens, market mornings and the grammar of dal bhat.",
   },
   {
     title: "Yoga & Meditation",
-    image: "/images/journeys/yoga.webp",
+    image: asset("/images/journeys/yoga.webp"),
     blurb: "Stillness practised where the mountains do it best.",
   },
   {
     title: "Language Immersion",
-    image: "/images/journeys/language.webp",
+    image: asset("/images/journeys/language.webp"),
     blurb: "Learn Nepali at the dinner table, not the classroom.",
   },
   {
     title: "Family Journeys",
-    image: "/images/journeys/family.webp",
+    image: asset("/images/journeys/family.webp"),
     blurb: "Villages that raise children together, welcoming yours.",
   },
   {
     title: "Festival Journeys",
-    image: "/images/journeys/festival.webp",
+    image: asset("/images/journeys/festival.webp"),
     blurb: "Time your travel to jatras, harvests and masked dances.",
   },
   {
     title: "Project Journeys",
-    image: "/images/journeys/project.webp",
+    image: asset("/images/journeys/project.webp"),
     blurb: "Purpose-built trips around community development work.",
   },
 ];

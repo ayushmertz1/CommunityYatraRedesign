@@ -1,4 +1,5 @@
 import Seo from "@/components/Seo";
+import { asset } from "@/lib/asset";
 import { TLink } from "@/lib/transition";
 import { Lines } from "@/lib/motion";
 import { ArrowRight, Brush, Compass, HandHeart, Home, Leaf, Mountain, Users } from "@/components/Icons";
@@ -60,7 +61,7 @@ export default function About() {
       <div className="container-site pb-(--spacing-section)">
         <div data-reveal className="img-frame aspect-[21/9] rounded-2xl mb-20">
           <div data-parallax="12" className="h-[116%] w-full -mt-[8%]">
-            <img src="/images/gallery/moment-1.webp" alt="Travellers and their host family sharing a village courtyard" />
+            <img src={asset("/images/gallery/moment-1.webp")} alt="Travellers and their host family sharing a village courtyard" />
           </div>
         </div>
 
@@ -134,7 +135,7 @@ export default function About() {
       <section className="container-site py-(--spacing-section)">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div data-reveal className="img-frame aspect-[4/3] rounded-t-[7rem] rounded-b-xl">
-            <img src="/images/mountains.webp" alt="Himalayan peaks above the valley haze" loading="lazy" />
+            <img src={asset("/images/mountains.webp")} alt="Himalayan peaks above the valley haze" loading="lazy" />
           </div>
           <div>
             <p data-reveal className="eyebrow text-clay mb-5">The road map</p>

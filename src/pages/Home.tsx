@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Seo from "@/components/Seo";
+import { asset } from "@/lib/asset";
 import Marquee from "@/components/Marquee";
 import { TLink } from "@/lib/transition";
 import { Lines, prefersReducedMotion, useCountUp } from "@/lib/motion";
@@ -81,12 +82,12 @@ function Hero() {
         <div className="relative hidden lg:block">
           <div className="hero-img img-frame aspect-[3.4/4] rounded-t-[10rem] rounded-b-2xl">
             <div data-parallax="8" className="h-[112%] w-full -mt-[6%]">
-              <img src="/images/hero.webp" alt="Terraced hills and village houses in the Nepali mid-hills" fetchPriority="high" />
+              <img src={asset("/images/hero.webp")} alt="Terraced hills and village houses in the Nepali mid-hills" fetchPriority="high" />
             </div>
           </div>
           <figure className="hero-fade absolute -left-16 bottom-10 w-44 rotate-[-4deg] bg-cream p-2.5 pb-4 shadow-[0_18px_40px_rgba(34,29,21,0.18)]">
             <div className="img-frame aspect-square">
-              <img src="/images/diyo.webp" alt="An oil lamp offering" loading="lazy" />
+              <img src={asset("/images/diyo.webp")} alt="An oil lamp offering" loading="lazy" />
             </div>
             <figcaption className="font-display italic text-[0.8rem] text-ink-soft mt-2.5 text-center">
               an evening diyo, Kathmandu
@@ -98,7 +99,7 @@ function Hero() {
       {/* Mobile hero image */}
       <div className="container-site lg:hidden pb-10">
         <div className="hero-img img-frame aspect-[4/3] rounded-t-[6rem] rounded-b-xl">
-          <img src="/images/hero.webp" alt="Terraced hills and village houses in the Nepali mid-hills" fetchPriority="high" />
+          <img src={asset("/images/hero.webp")} alt="Terraced hills and village houses in the Nepali mid-hills" fetchPriority="high" />
         </div>
       </div>
 
@@ -302,7 +303,7 @@ function FeaturedCircuit() {
               className="absolute -bottom-8 -left-6 md:-left-12 w-40 md:w-52 rotate-[3deg] bg-cream p-2.5 pb-4 shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
             >
               <div className="img-frame aspect-[4/3]">
-                <img src="/images/bandipur.webp" alt="Bandipur's stone-paved main street" loading="lazy" />
+                <img src={asset("/images/bandipur.webp")} alt="Bandipur's stone-paved main street" loading="lazy" />
               </div>
               <figcaption className="font-display italic text-[0.8rem] text-ink-soft mt-2.5 text-center">
                 the bazaar, Bandipur

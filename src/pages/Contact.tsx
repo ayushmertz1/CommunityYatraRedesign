@@ -10,11 +10,14 @@ interface Errors {
   message?: string;
 }
 
+const WEB3FORMS_ACCESS_KEY = "7ea461f3-5e11-4cf4-8bac-f0fb8c100e8e";
+
 export default function Contact() {
   const [values, setValues] = useState({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
   const set = (k: keyof typeof values) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setValues((v) => ({ ...v, [k]: e.target.value }));
@@ -30,7 +33,7 @@ export default function Contact() {
     return errs;
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) {
@@ -39,15 +42,32 @@ export default function Contact() {
       if (firstInvalid) document.getElementById(`c-${firstInvalid}`)?.focus();
       return;
     }
+
     setSending(true);
-    // Static-host friendly: opens the visitor's mail client pre-filled.
-    const subject = encodeURIComponent(`Journey enquiry from ${values.name}`);
-    const body = encodeURIComponent(`${values.message}\n\n— ${values.name}\n${values.email}${values.phone ? `\n${values.phone}` : ""}`);
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    window.setTimeout(() => {
-      setSending(false);
+    setSendError(false);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Journey enquiry from ${values.name} — communityyatra`,
+          from_name: "Community Yatra website",
+          name: values.name,
+          email: values.email,
+          phone: values.phone || "not provided",
+          message: values.message,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message ?? "Submission failed");
       setSent(true);
-    }, 600);
+      setValues({ name: "", email: "", phone: "", message: "" });
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -129,8 +149,8 @@ export default function Contact() {
                 </span>
                 <h2 className="display-md text-[clamp(1.7rem,3vw,2.4rem)]">Your message is on its way.</h2>
                 <p className="text-pine-mist/85 mt-4 leading-relaxed max-w-md">
-                  Your mail app should have opened with everything filled in — hit send there and we'll
-                  reply within a day or two. Didn't open? Write to us directly at{" "}
+                  It has landed safely in our inbox in Kathmandu — expect a reply within a day or two.
+                  In a hurry? You can always reach us directly at{" "}
                   <a href={`mailto:${site.email}`} className="underline text-marigold-soft">{site.email}</a>.
                 </p>
                 <button type="button" onClick={() => setSent(false)} className="btn-ghost btn-ghost--light mt-9 cursor-pointer">
@@ -223,8 +243,16 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {sendError && (
+                  <p role="alert" className="mt-8 border-l-2 border-[#c02b1d] bg-paper rounded-r-lg px-5 py-4 text-[0.92rem] text-ink-soft">
+                    Something went wrong on the way to Kathmandu — please try again, or write to us
+                    directly at{" "}
+                    <a href={`mailto:${site.email}`} className="underline text-clay">{site.email}</a>.
+                  </p>
+                )}
+
                 <button type="submit" disabled={sending} className="btn-primary mt-10 disabled:opacity-60 disabled:cursor-wait">
-                  {sending ? "Opening your mail app…" : <>Send the message <ArrowRight /></>}
+                  {sending ? "Sending…" : <>Send the message <ArrowRight /></>}
                 </button>
               </form>
             )}
