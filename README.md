@@ -1,74 +1,78 @@
-# Community Yatra — redesigned
+# Community Yatra — Website
 
-A ground-up redesign of [communityyatra.com](https://communityyatra.com/): community-based
-tourism in Nepal — homestay circuits, cultural immersion and volunteering, owned by the
-villages that host you.
+Community-rooted travel across Nepal. Homestays, farming, craft and culture — journeys where every
+rupee stays in the village that welcomes you.
 
-## The concept
-
-*Yatra* means journey — the kind that changes who comes home. The site is built as one
-continuous scroll journey through a day in the hills:
-
-- **A layered Himalayan dawn hero** — five hand-drawn SVG layers (sky, snow range, ridges,
-  village) with independent scroll parallax, a rising sun, swaying prayer flags and a
-  Devanagari watermark.
-- **A scroll-linked manifesto** that reveals word by word as you read.
-- **Four illustrated journey circuits** (Bandipur, Ghalegaun, Panauti, Chitwan), each with a
-  bespoke vignette in its own light — golden dusk, alpine morning, lamp-lit evening, grassland
-  dawn — opening into a shared-element itinerary modal.
-- **"One day in the homestay"** — a sticky, scroll-driven scene whose sky moves from
-  5:30 tea through midday fields to 19:00 firelight, narrated in five moments.
-- **Volunteer, impact and voices** sections, a village-names marquee, and a
-  plan-your-yatra form.
-
-Every visual asset is hand-drawn SVG — no stock photography, no external requests.
-The whole site ships as a single self-contained bundle with self-hosted fonts.
+This is the redesigned Community Yatra website: a fast, accessible, editorial single-page
+application built for static hosting (cPanel/Apache).
 
 ## Design language
 
-| Token | Value | Meaning |
-| --- | --- | --- |
-| `ink` / `ink-deep` | `#131e30` / `#0c1422` | Himalayan night |
-| `paper` / `paper-warm` | `#f7f1e3` / `#f1e7d2` | handmade paper |
-| `clay` | `#c2543a` | Nepali brick & roof tile |
-| `marigold` | `#e8a33d` | garland gold |
-| `juniper` | `#47614f` | hill forest |
+**"Warm Editorial"** — print-inspired layouts with Nepali earth tones.
 
-Type: **Fraunces Variable** (display, with optical sizing + SOFT/WONK axes) and
-**Inter Variable** (text). Motion: Lenis smooth scroll + Framer Motion, with a full
-`prefers-reduced-motion` fallback (static day-in-life timeline, no parallax).
+| Token | Value | Use |
+| --- | --- | --- |
+| Paper `#FAF6EE` | warm cream | page background |
+| Ink `#221D15` | warm near-black | text |
+| Clay `#B04A24` | sindoor terracotta | primary actions, accents |
+| Marigold `#E2A13C` | garland gold | highlights, underlines |
+| Pine `#16302A` | Himalayan forest | dark sections, footer |
+
+- **Type**: Fraunces (variable, display) · Inter (body) · Noto Serif Devanagari (यात्रा brand accent)
+- **Motion**: GSAP + ScrollTrigger reveals, Lenis smooth scroll, page-transition veil.
+  All motion respects `prefers-reduced-motion`.
+- **Texture**: SVG grain overlay, hand-drawn marigold underlines, polaroid figures.
 
 ## Stack
 
-- [Vite](https://vite.dev) + React 19 + TypeScript
-- Tailwind CSS v4 (design tokens via `@theme`)
-- Framer Motion (scroll-linked animation, shared-element modal)
-- Lenis (smooth scrolling)
-- Self-hosted fonts via Fontsource
+- [Vite](https://vitejs.dev) + [React 19](https://react.dev) + TypeScript (strict)
+- [Tailwind CSS v4](https://tailwindcss.com) with design tokens in `src/styles/global.css`
+- [GSAP](https://gsap.com) + [Lenis](https://lenis.darkroom.engineering) for motion
+- React Router 7 (SPA routing)
+- Self-hosted fonts via Fontsource (no external requests)
 
-## Run it
+## Develop
 
 ```bash
 npm install
-npm run dev      # local dev server
-npm run build    # production build to dist/
-npm run preview  # serve the production build
+npm run dev        # local dev server
+npm run build      # type-check + production build to dist/
+npm run preview    # serve the production build locally
 ```
+
+## Deploy
+
+**GitHub Pages (staging):** pushed commits auto-deploy via `.github/workflows/deploy-pages.yml`
+to `https://ayushmertz1.github.io/CommunityYatraRedesign/`. The workflow builds with
+`VITE_BASE=/CommunityYatraRedesign/` and copies `index.html` → `404.html` for SPA routing.
+
+**cPanel (production):**
+
+1. `npm run build` (no `VITE_BASE` — the site lives at the domain root)
+2. Upload the **contents** of `dist/` to `public_html/` (or the domain's document root).
+3. The included `.htaccess` handles SPA routing (all paths fall through to `index.html`),
+   long-lived caching for hashed assets, and gzip.
+
+**Contact form:** submissions go through [Web3Forms](https://web3forms.com) to the site inbox —
+no server required on either host.
 
 ## Structure
 
 ```
 src/
-  art/          hand-drawn SVG scenes & motifs (hero layers, journey vignettes, icons)
-  components/   one file per section + shared ui primitives
-  data/         journeys, itineraries, testimonials, site copy
-  hooks/        useLenis smooth-scroll hook
-  index.css     design tokens & base styles
+  components/   Navbar, Footer, Icons (hand-set SVG), Marquee, Seo
+  data/         journeys, homestays, team, testimonials, site info
+  lib/          motion primitives (GSAP/Lenis), page-transition veil
+  pages/        Home, Journeys, JourneyDetail, Homestays, About, Team, Contact, NotFound
+  styles/       global.css — design tokens + component classes
+public/
+  images/       curated WebP photography from the Community Yatra archive
+  .htaccess     Apache SPA routing + caching
+  sitemap.xml, robots.txt, favicon.svg
 ```
 
-## Accessibility & performance
+## Accessibility
 
-- Semantic landmarks, skip link, focus-visible states, labelled controls
-- Journey modal: focus management, Escape to close, focus return
-- Reduced-motion variants for every animated experience
-- No third-party requests at runtime; ~130 kB gzipped JS, CSS + fonts self-hosted
+Skip link, semantic landmarks, visible focus rings, `lang="ne"` on Devanagari text, alt text on
+meaningful imagery, keyboard-reachable interactions, WCAG AA contrast on both light and dark
+sections, and full `prefers-reduced-motion` support.

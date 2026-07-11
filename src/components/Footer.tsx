@@ -1,80 +1,111 @@
-import { nav, contact } from '../data/site'
-import { SunMark } from '../art/Motifs'
+import { TLink } from "@/lib/transition";
+import { site } from "@/data/site";
+import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "./Icons";
 
-export function Footer() {
-  const year = new Date().getFullYear()
+const nav = [
+  { to: "/journeys", label: "Journeys" },
+  { to: "/homestays", label: "Homestays" },
+  { to: "/about", label: "About us" },
+  { to: "/team", label: "Our team" },
+  { to: "/contact", label: "Contact" },
+];
+
+export default function Footer() {
   return (
-    <footer className="border-t border-paper/8 bg-ink-deep">
-      <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8">
-        <div className="flex flex-col justify-between gap-12 md:flex-row md:items-start">
-          <div className="max-w-sm">
-            <a href="#top" className="flex items-center gap-3" aria-label="Community Yatra — back to top">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-marigold text-ink-deep">
-                <SunMark className="h-6 w-6" />
-              </span>
-              <span className="font-display text-xl font-semibold">
-                Community <span className="text-marigold">Yatra</span>
-              </span>
-            </a>
-            <p className="mt-5 text-sm leading-relaxed text-paper/50">
-              Community-based tourism from Nepal's villages — homestays, cultural circuits and
-              volunteering, owned by the people who host you.
-            </p>
-          </div>
-
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-16 gap-y-3 text-sm">
-            {[...nav, { label: 'Plan your yatra', href: '#plan' }].map((item) => (
-              <a key={item.href + item.label} href={item.href} className="text-paper/60 transition-colors hover:text-marigold">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="text-sm text-paper/60">
-            <p className="font-semibold text-paper/80">Kathmandu office</p>
-            <p className="mt-3 leading-relaxed">{contact.address}</p>
-            <a href={`mailto:${contact.email}`} className="mt-3 block text-marigold underline-offset-4 hover:underline">
-              {contact.email}
-            </a>
-            <a href={`tel:${contact.phone}`} className="mt-1.5 block text-paper/60 hover:text-paper">
-              {contact.phoneDisplay}
-            </a>
-            <div className="mt-4 flex items-center gap-4">
-              <a href={contact.facebook} aria-label="Community Yatra on Facebook" className="text-paper/50 hover:text-marigold">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-                  <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 15.9 2 14.56 2 11.8 2 10 3.66 10 6.7v2.8H7v4h3V22h4Z" />
-                </svg>
-              </a>
-              <a href={contact.instagram} aria-label="Community Yatra on Instagram" className="text-paper/50 hover:text-marigold">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-                </svg>
-              </a>
-              <a href={contact.linkedin} aria-label="Community Yatra on LinkedIn" className="text-paper/50 hover:text-marigold">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-                  <path d="M6.94 8.5H3.56V20h3.38ZM5.25 3.2a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92ZM20.44 20h-3.37v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V20H9.68V8.5h3.24v1.57h.05c.45-.85 1.55-1.75 3.2-1.75 3.42 0 4.05 2.25 4.05 5.18Z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* giant wordmark */}
-        <div className="mt-16 overflow-hidden" aria-hidden="true">
-          <p className="font-display translate-y-[0.28em] text-center text-[clamp(3rem,12.5vw,11rem)] leading-none font-semibold whitespace-nowrap text-paper/[0.06] select-none">
-            शुभ यात्रा
-          </p>
-        </div>
-
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-paper/8 pt-6 text-xs text-paper/35 sm:flex-row">
-          <p>© {year} Community Yatra. Made with the villages of Nepal.</p>
-          <p>
-            <span aria-hidden="true">शुभ यात्रा</span> — safe travels
-          </p>
+    <footer className="bg-pine-deep text-paper" role="contentinfo">
+      {/* Big invitation */}
+      <div className="container-site pt-20 pb-14 md:pt-28 md:pb-20 border-b border-line-dark">
+        <p className="eyebrow text-marigold mb-6">Begin your yatra</p>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+          <h2 className="display-lg text-[clamp(2.4rem,6vw,4.75rem)] max-w-3xl">
+            The village is already
+            <br />
+            <em className="text-marigold-soft">expecting you.</em>
+          </h2>
+          <TLink to="/contact" className="btn-primary self-start lg:self-auto lg:mb-3">
+            Plan your journey <ArrowUpRight />
+          </TLink>
         </div>
       </div>
+
+      {/* Columns */}
+      <div className="container-site py-14 grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="max-w-sm">
+          <p className="font-display text-2xl font-[450] mb-1">
+            Community Yatra{" "}
+            <span className="text-marigold text-lg" style={{ fontFamily: "var(--font-devanagari)" }} aria-hidden="true" lang="ne">
+              यात्रा
+            </span>
+          </p>
+          <p className="text-pine-mist/80 text-[0.95rem] leading-relaxed mt-4">
+            Community-rooted travel across Nepal. Homestays, farming, craft and culture — journeys where
+            every rupee stays in the village that welcomes you.
+          </p>
+          <div className="flex gap-3 mt-7">
+            {[
+              { href: site.social.facebook, label: "Facebook", Icon: Facebook },
+              { href: site.social.instagram, label: "Instagram", Icon: Instagram },
+              { href: site.social.linkedin, label: "LinkedIn", Icon: Linkedin },
+            ].map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Community Yatra on ${label}`}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-line-dark text-pine-mist transition-all duration-300 hover:bg-marigold hover:text-ink hover:border-marigold"
+              >
+                <Icon />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <nav aria-label="Footer">
+          <p className="eyebrow text-pine-mist/60 mb-5">Explore</p>
+          <ul className="space-y-3">
+            {nav.map((l) => (
+              <li key={l.to}>
+                <TLink
+                  to={l.to}
+                  className="text-[0.98rem] text-paper/90 hover:text-marigold transition-colors"
+                >
+                  {l.label}
+                </TLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div>
+          <p className="eyebrow text-pine-mist/60 mb-5">Find us</p>
+          <ul className="space-y-4 text-[0.95rem] text-paper/90">
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 shrink-0 text-marigold" />
+              {site.address}
+            </li>
+            <li>
+              <a href={`mailto:${site.email}`} className="flex items-start gap-3 hover:text-marigold transition-colors">
+                <Mail className="mt-0.5 shrink-0 text-marigold" />
+                {site.email}
+              </a>
+            </li>
+            <li>
+              <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`} className="flex items-start gap-3 hover:text-marigold transition-colors">
+                <Phone className="mt-0.5 shrink-0 text-marigold" />
+                {site.phone}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="container-site py-6 border-t border-line-dark flex flex-col sm:flex-row gap-2 justify-between text-[0.82rem] text-pine-mist/60">
+        <p>© {new Date().getFullYear()} Community Yatra Pvt. Ltd. All rights reserved.</p>
+        <p>
+          Made with care in Kathmandu — travelling toward <span className="text-marigold-soft">Net Zero</span>.
+        </p>
+      </div>
     </footer>
-  )
+  );
 }
