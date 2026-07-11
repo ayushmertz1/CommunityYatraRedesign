@@ -1,58 +1,40 @@
-import { useLenis } from './hooks/useLenis'
-import { Nav } from './components/Nav'
-import { Hero } from './components/Hero'
-import { Manifesto } from './components/Manifesto'
-import { Principles } from './components/Principles'
-import { Journeys } from './components/Journeys'
-import { DayInLife } from './components/DayInLife'
-import { Volunteer } from './components/Volunteer'
-import { Impact } from './components/Impact'
-import { Voices } from './components/Voices'
-import { Team } from './components/Team'
-import { PlanCta } from './components/PlanCta'
-import { Footer } from './components/Footer'
-import { Torn } from './components/Torn'
+import { Routes, Route } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { TransitionProvider } from "@/lib/transition";
+import { useLenis, useScrollReveals, useScrollToTop } from "@/lib/motion";
+import Home from "@/pages/Home";
+import Journeys from "@/pages/Journeys";
+import JourneyDetail from "@/pages/JourneyDetail";
+import Homestays from "@/pages/Homestays";
+import About from "@/pages/About";
+import Team from "@/pages/Team";
+import Contact from "@/pages/Contact";
+import NotFound from "@/pages/NotFound";
 
 export default function App() {
-  useLenis()
+  useLenis();
+  useScrollToTop();
+  useScrollReveals();
 
   return (
-    <div className="grain">
-      <a
-        href="#journeys"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-marigold focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-ink-deep"
-      >
-        Skip to journeys
-      </a>
-      <Nav />
-      <main>
-        <Hero />
-        <Manifesto />
-        <Principles />
-        <Journeys />
-        <div className="bg-ink-deep">
-          <Torn color="text-paper" />
-        </div>
-        <DayInLife />
-        <div className="bg-paper-warm">
-          <Torn color="text-ink-deep" />
-        </div>
-        <Volunteer />
-        <div className="bg-ink">
-          <Torn color="text-paper-warm" />
-        </div>
-        <Impact />
-        <div className="bg-paper">
-          <Torn color="text-ink" />
-        </div>
-        <Voices />
-        <Team />
-        <div className="bg-ink-deep">
-          <Torn color="text-paper" />
-        </div>
-        <PlanCta />
-      </main>
-      <Footer />
-    </div>
-  )
+    <TransitionProvider>
+      <div className="grain">
+        <Navbar />
+        <main id="main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/journeys" element={<Journeys />} />
+            <Route path="/journeys/:slug" element={<JourneyDetail />} />
+            <Route path="/homestays" element={<Homestays />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </TransitionProvider>
+  );
 }
